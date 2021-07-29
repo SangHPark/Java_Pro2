@@ -48,22 +48,22 @@ public class P_0007_highway_construction {
 	}
 	
 	public static void unionParent(int a, int b) {
-		int pa = getParent(a);
-		int pb = getParent(b);
+		a = getParent(a);
+		b = getParent(b);
 		
-		if (pa < pb) parent[pb] = a;
-		else parent[pa] = b;
+		if (a < b) parent[b] = a;
+		else parent[a] = b;
 	}
 	
-	public static boolean hasSameParent(int a, int b) {
+	public static boolean isConnected(int a, int b) {
 		if (getParent(a) == getParent(b)) return true;
 		else return false;
 	}
 	
 	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
-//		System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\P_0007_highway_construction.txt"));
-		System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\highway.txt"));
+		System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\P_0007_highway_construction.txt"));
+//		System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\highway.txt"));
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st;
 		
@@ -99,18 +99,15 @@ public class P_0007_highway_construction {
 				int to = myArrayList.get(i).t_city;
 				
 				
-				if (!hasSameParent(from, to)) {
+				if (!isConnected(from, to)) {
 					sum += myArrayList.get(i).cost;
 					
 					unionParent(from, to);
 					
 					System.out.println("from = " + from + " to = " + to + " cost = " + myArrayList.get(i).cost + " sum = " + sum);
-					
 				}
 			}
-			
 			System.out.println("#" + t + " " + sum);
-			
 		}
 		
 	}
