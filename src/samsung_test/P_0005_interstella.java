@@ -52,9 +52,9 @@ public class P_0005_interstella {
 		_start = System.currentTimeMillis(); // set application start time for test which do not mandatory for exam.
 		
 		try {
-			System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\P_0005_interstella.txt"));
+//			System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\P_0005_interstella.txt"));
+			System.setIn(new FileInputStream("C:\\Dev\\workspace\\Java_Pro2\\src\\samsung_test\\P_0005_interstella.txt"));
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//			Scanner sc = new Scanner(new InputStreamReader(System.in));
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			
 			
@@ -133,15 +133,12 @@ public class P_0005_interstella {
 					Element current = pq.poll();
 					
 					if (current.distance > distance[current.index][current.warp]) continue;
-//					if (current.index == 3) {
-//						System.out.println("LMK");
-//					}
 					
 					if (current.index == end) continue;
 					
 					
 					for (Element e : alist[current.index]) {
-//						System.out.println("current index(from) = " + current.index + " e.index(to) = " + e.index + " e.distance = " + e.distance);
+						System.out.println("current index(from) = " + current.index + " e.index(to) = " + e.index + " e.distance = " + e.distance);
 
 						if (e.index == end && (current.warp + 1) == K) {
 //							System.out.println("Checking " + t +  " e.index = " + e.index );

@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.PriorityQueue;
 
-//NOT Completed
+//Completed
 public class P_0005_interstella3 {
 
 	static int T;
@@ -13,7 +13,7 @@ public class P_0005_interstella3 {
 	static int M;
 	static int K;
 	
-	static int[][] adj, b_adj;
+	static int[][] adj;
 	static int[][] distance;
 //	static int INF = Integer.MAX_VALUE;
 	static int INF = 987654321;	
@@ -40,7 +40,8 @@ public class P_0005_interstella3 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		try {
-			System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\P_0005_interstella.txt"));
+//			System.setIn(new FileInputStream("C:\\Users\\SDSA\\eclipse-workspace-Study\\Java_Pro2\\src\\samsung_test\\P_0005_interstella.txt"));
+			System.setIn(new FileInputStream("C:\\Dev\\workspace\\Java_Pro2\\src\\samsung_test\\P_0005_interstella.txt"));
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			
 			T = Integer.parseInt(br.readLine());
@@ -98,11 +99,9 @@ public class P_0005_interstella3 {
 					Element current = pq.poll();
 					
 					if (current.distance > distance[current.index][current.warp]) continue;
-//					if (current.index == 3) {
-//						System.out.println("LMK");
-//					}
+
 					for (int i = 1; i < N + 1; i ++) {
-//						System.out.println("current index = " + current.index + " current distance = " + current.distance);						
+						System.out.println("wrap = " + current.warp + " current index = " + current.index + " to (i) = " + i + " distance = " + distance[i][current.warp]);						
 						if (adj[current.index][i] != INF) {
 							if (distance[i][current.warp] > distance[current.index][current.warp] + adj[current.index][i]) {
 								distance[i][current.warp] = distance[current.index][current.warp] + adj[current.index][i];
