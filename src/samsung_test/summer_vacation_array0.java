@@ -108,6 +108,8 @@ public class summer_vacation_array0 {
 //						System.out.print (" adj[current.index][i] = " + adj[current.index][i]);
 						
 						if (adj[current.index][i] != INF) {
+							
+
 							int nextDistance = distance[current.index] + adj[current.index][i];
 							if (distance[i] > nextDistance) {
 								distance[i] = nextDistance;
